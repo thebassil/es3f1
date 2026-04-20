@@ -1,5 +1,6 @@
 #include "xparameters.h"
 #include "xil_io.h"
+#include "xuartps.h"
 #include "sleep.h"
 
 #include "ov5640/OV5640.h"
