@@ -44,7 +44,7 @@ module btn_ctrl #
     output reg         branch_sel,
 
     // LED outputs
-    output wire [3:0]  led
+    output reg  [3:0]  led
 );
 
     // -------------------------------------------------------------------------
@@ -213,21 +213,19 @@ module btn_ctrl #
     end
 
     // -------------------------------------------------------------------------
-    // LED outputs (registered to help Vivado module reference inference)
+    // LED outputs (directly registered output reg — no intermediate wire/assign)
     // -------------------------------------------------------------------------
     wire any_filter_active;
     assign any_filter_active = (active_filter_a != 3'd0) || (active_filter_b != 3'd0);
 
-    reg [3:0] led_reg;
     always @(posedge clk) begin
         if (!n_rst)
-            led_reg <= 4'b0000;
+            led <= 4'b0000;
         else begin
-            led_reg[0] <= active_branch;
-            led_reg[1] <= any_filter_active;
-            led_reg[3:2] <= active_comp_mode[1:0];
+            led[0] <= active_branch;
+            led[1] <= any_filter_active;
+            led[3:2] <= active_comp_mode[1:0];
         end
     end
-    assign led = led_reg;
 
 endmodule

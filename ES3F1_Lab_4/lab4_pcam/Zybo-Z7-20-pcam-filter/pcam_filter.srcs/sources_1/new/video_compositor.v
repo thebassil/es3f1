@@ -206,7 +206,7 @@ module video_compositor #
                         if (in_sobel_border)
                             o_vid_data <= a_vid_data;
                         else if (edge_mag > edge_thresh_lat)
-                            o_vid_data <= 24'hFFFFFF; // white edge outline
+                            o_vid_data <= {DATA_WIDTH{1'b1}}; // white edge outline
                         else
                             o_vid_data <= a_vid_data; // base colour from path A
                     end
