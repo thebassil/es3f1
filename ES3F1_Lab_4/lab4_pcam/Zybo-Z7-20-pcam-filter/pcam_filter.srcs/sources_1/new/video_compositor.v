@@ -144,8 +144,8 @@ module video_compositor #
             branch_lat     <= branch_sel;
             // Use sensible defaults when AXI GPIO is zero-initialized
             wipe_lat       <= (wipe_pos == 11'd0) ? 11'd960 : wipe_pos;
-            roi_x_lat      <= roi_x;
-            roi_y_lat      <= roi_y;
+            roi_x_lat      <= (roi_x == 11'd0 && roi_w == 11'd0) ? 11'd640 : roi_x;
+            roi_y_lat      <= (roi_y == 11'd0 && roi_h == 11'd0) ? 11'd270 : roi_y;
             roi_w_lat      <= (roi_w == 11'd0) ? 11'd640 : roi_w;
             roi_h_lat      <= (roi_h == 11'd0) ? 11'd540 : roi_h;
             edge_thresh_lat <= (edge_thresh == 8'd0) ? 8'd64 : edge_thresh;
