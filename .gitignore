@@ -1,0 +1,17 @@
+# Vivado build artifacts
+*.runs/
+*.sim/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.gen/
+
+# Vitis workspace (large, regeneratable)
+ES3F1_Lab_4/lab4_vitis/
+
+# Archives
+*.zip
+
+# Misc
+.specstory/
+excalidraw.log
